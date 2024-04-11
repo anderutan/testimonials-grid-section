@@ -12,11 +12,14 @@ function App() {
   return (
     <div className='w-full h-full md:h-screen bg-slate-300 flex items-center justify-center'>
       <div className='max-w-7xl md:grid md:grid-cols-4 md:grid-rows-2'>
-        <Card review={data[0]} index={0} cardStyles={cardStyles[0]} />
-        <Card review={data[1]} index={1} cardStyles={cardStyles[1]} />
-        <Card review={data[2]} index={2} cardStyles={cardStyles[2]} />
-        <Card review={data[3]} index={3} cardStyles={cardStyles[3]} />
-        <Card review={data[4]} index={4} cardStyles={cardStyles[4]} />
+        {data.map((review, index) => (
+          <Card
+            review={review}
+            index={index}
+            cardStyles={cardStyles[index % cardStyles.length]}
+            key={index}
+          />
+        ))}
       </div>
     </div>
   );
